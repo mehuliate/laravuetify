@@ -1,25 +1,25 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import LoginComponent from './components/LoginComponent';
+import AdminComponent from './components/AdminComponent';
 
-const foo = {template: "<v-alert type='error'> i'm Foo Component</v-alert>"}
-const bar = {template: "<v-alert type='error'> i'm Bar Component</v-alert>"}
-const user = {template: "<v-alert type='error'> i'm {{$route.params.name}}</v-alert>"}
 
 Vue.use(VueRouter);
 
-const routes = [
-    {
-        path: '/foo',
-        component: foo
+const routes = [{
+        path: '/',
+        redirect: '/login'
     },
     {
-        path: '/bar',
-        component: bar
+        path: '/login',
+        component: LoginComponent,
+        name: 'Login'
     },
     {
-        path: '/user/:name',
-        component: user
+        path: '/admin',
+        component: AdminComponent,
+        name: 'Admin'
     }
 ];
 
-export default new VueRouter({routes});
+export default new VueRouter({ routes });
